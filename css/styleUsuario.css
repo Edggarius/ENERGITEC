@@ -1,0 +1,16 @@
+.nav1{
+    max-width: 4px;
+    left: auto;
+    color: aquamarine;
+}
+
+.nav{
+    color: aquamarine;
+}
+
+.header{
+    background-color: #D4AF37;
+    
+    /* height: 85px; */
+    padding: 5px 1%;
+}
