@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="validacion_registro.js"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +15,7 @@
 
 	<div class="container">
         <section>
-        <form method="POST" action="Registar.php" onsubmit="">
+        <form method="POST" action="Registar.php">
             <h1>Registrate</h1>
 			<div class="main">
 				<input id="name" type="text" name="Nombre" required>
@@ -23,17 +24,17 @@
 			</div> 
             
         	    <div class="main">
-				<input id="email" type="text" name="email" required>
+				<input id="email" type="text" name="email" pattern="^(l)((m|c)?[0-9]{2}(120|121)[0-9]{3})(@morelia.tecnm.mx)$" required>
 				<span></span>
 				<label>Correo Institucional</label>	
 				</div>   
 				
 				<div class="main">
-				<input id="rfc" type="text" name="RFC" required>
+				<input id="rfc" type="text" name="RFC" pattern ="^[A-Z]{4}([0-9]{6})\w{3}$" required>
 				<span></span>
 				<label>RFC</label>	
 				</div>   
-
+				
 
 				<div class="main">
 					<input id="lastname" type="text" name="Apellidos" required>
@@ -42,28 +43,28 @@
 					</div>
 
 					<div class="main">
-						<select name="" id="" required>
-							<option name="rol" value="0">-Selecione un Rol</option>
-							<option name="rol" value="1">Administrador</option>
-							<option name="rol" value="2">Jefe</option>
-							<option name="rol" value="3">Personal</option>
-						</select>
-						<span></span>
-						<label>Rol</label>	
+					 <select name="rol" id="" required>
+							<option value="0">-Selecione un Rol</option>
+							<option value="1">Administrador</option>
+							<option value="2">Jefe</option>
+							<option value="3">Personal</option>
+						</select> 
+						<!-- <span></span> -->
+						<label>Rol</label>							
 						</div>
 				
 			<div class="main">
-			<input id="pass" type="password" name="contra" required>
+			<input id="pass" type="password" name="contra" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required>
 				<span></span>
 				<label>Contraseña</label>	
 			</div> 
-			</a><input id="button" type="submit" value="Registrate">
+			</a><input id="button" type="submit" value="Registrate"> -->
 			<div class="signup">
 				
 			</div>	
+			<button class="enviar" name="enviar" type="submit">Enviar</button>
 		</form>	
 	</section>
-	
-	<script src="validacion_registro.js"></script>
+		
 </body>
 </html>

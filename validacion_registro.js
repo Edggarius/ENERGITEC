@@ -5,18 +5,40 @@ let rfc = document.getElementById('rfc')
 // let emailOK = regExp.test(email);
 let btn = document.getElementById('button')
 
-btn.addEventListener('click', (event)=>{
-    event.preventDefault()
-    validarEmail(email.value)
-    validarPass(pass.value)
-    validarRFC(rfc.value)
-})
-   
+// btn.addEventListener('click', (event)=>{
+//     event.preventDefault()
+//     validarEmail(email.value)
+//     // validarPass(pass.value)
+//     validarRFC(rfc.value)
+// })
+function verificar(){
+    // validarEmail(email.value)
+    // validarPass(pass.value)
+
+    let regExp = /^[A-Z]{4}([0-9]{6})\w{3}$/gm
+    console.log(rfc.value);
+    console.log(regExp.test(rfc.value));
+    // // if(regExp.test(rfc)==false){
+    // //     return false;
+    // // }
+    if(regExp.test(rfc.value)==true){
+        console.log('Aki');
+        return true;
+
+    }
+
+
+} 
 function validarRFC(rfc){ 
     let regExp = /^[A-Z]{4}([0-9]{6})\w{3}$/gm
       
     console.log(rfc)
     console.log(regExp.test(rfc))
+    if(!regExp.test(rfc)){
+        return fal;
+    }else{
+        return false;
+    }
 }
 
 function validarEmail(email){   
