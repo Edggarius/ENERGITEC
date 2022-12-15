@@ -14,49 +14,56 @@
 
 	<div class="container">
         <section>
-        <form method="POST" action="Registar.php">
+        <form method="POST" action="Registar.php" onsubmit="">
             <h1>Registrate</h1>
 			<div class="main">
-				<input type="text" name="Nombre" required>
+				<input id="name" type="text" name="Nombre" required>
 				<span></span>
 				<label>Nombre</label>
 			</div> 
             
         	    <div class="main">
-				<input type="text" name="email" required>
+				<input id="email" type="text" name="email" required>
 				<span></span>
 				<label>Correo Institucional</label>	
 				</div>   
 				
 				<div class="main">
-				<input type="text" name="RFC" required>
+				<input id="rfc" type="text" name="RFC" required>
 				<span></span>
 				<label>RFC</label>	
 				</div>   
 
 
 				<div class="main">
-					<input type="text" name="Apellidos" required>
+					<input id="lastname" type="text" name="Apellidos" required>
 					<span></span>
 					<label>Apellidos</label>	
 					</div>
 
 					<div class="main">
-						<input type="text" name="Rol" required>
+						<select name="" id="" required>
+							<option name="rol" value="0">-Selecione un Rol</option>
+							<option name="rol" value="1">Administrador</option>
+							<option name="rol" value="2">Jefe</option>
+							<option name="rol" value="3">Personal</option>
+						</select>
 						<span></span>
 						<label>Rol</label>	
 						</div>
 				
 			<div class="main">
-			<input type="password" name="contra" required>
+			<input id="pass" type="password" name="contra" required>
 				<span></span>
 				<label>Contraseña</label>	
 			</div> 
-			</a><input type="submit" value="Registrate">
+			</a><input id="button" type="submit" value="Registrate">
 			<div class="signup">
 				
 			</div>	
 		</form>	
-	</section>	
+	</section>
+	
+	<script src="validacion_registro.js"></script>
 </body>
 </html>

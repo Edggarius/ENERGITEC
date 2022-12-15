@@ -1,11 +1,11 @@
 <?php
     
     $servername = 'localhost';
-    $port = '3306';
+    $port = '3309';
     $username = 'root';
     $password = '';
-    $database = 'bdperrona.sql';
-    $tabla = 'usuario';
+    $database = 'energitec';
+    $tabla = 'datosp';
 
     $conexion = mysqli_connect($servername,$username, $password, $database);
         
