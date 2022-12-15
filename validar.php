@@ -1,14 +1,11 @@
 <?php 
-   require 'conexion.php';
+   require 'conexion1.php';
 
   $nombre = $_POST["nombre"];
-  $contra = $_POST["contra"];
+  $contra = sha1($_POST["contra"]);
 
-
-  $conexion = mysqli_connect($servername,$username, $password, $database);
-
-  $consulta="SELECT * FROM usuario WHERE nombre='$nombre' and contra='$contra'";
-  $resultado=mysqli_query($conexion, $consulta);
+  $consulta="SELECT * FROM usuario WHERE Nombre='$nombre' and contra='$contra'";
+  $resultado=mysqli_query($con, $consulta);
 
   $filas=mysqli_num_rows($resultado);
   if($filas>0){
@@ -16,8 +13,9 @@
   }
   else{
     echo"Error en el inicio de sesion";
+    header('location:login.html?resp=false');
   }
   mysqli_free_result($resultado);
-  mysqli_close($conexion);
+  mysqli_close($con);
 
 ?>
