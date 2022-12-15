@@ -71,9 +71,8 @@
                                                 <td><?php  echo $tiempo?></td>
                                                 <td><?php  echo $total?></td>                                            
                                                 <td>
-                                                <form action="consumo_espacios.php" method="post">
-                                                    <input type="hidden" name="id" value="<?php echo $id_edificio?>">    
-                                                    <input type="hidden" name="nombre" value="<?php echo $nombre?>">                                                
+                                                <form action="edit_aparato.php" method="get">
+                                                    <input type="hidden" name="id" value="<?php echo $id?>">                                                        
                                                     <button type="submit" class="btn btn-info">Editar</button>
                                                 </form>                                                                                           
                                                 </td>
