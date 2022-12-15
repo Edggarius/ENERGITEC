@@ -1,9 +1,9 @@
 <?php 
     require 'DBManager.php';
     
-    $detalles = json_decode(getDetalles($_POST['id']));   
-    print_r($_POST['nombre']) ;
-    print_r($_POST['id']) ;
+    $detalles = json_decode(getDetalles($_GET['id']));   
+    $aparatos = json_decode(getAparatos());        
+    
     // $sql="SELECT * FROM usuario";
     // $query=mysqli_query($con,$sql);
 ?>
@@ -22,11 +22,17 @@
                     <div class="row"> 
                         
                         <div class="col-md-3">
-                            <h1>Salon <?php echo $_POST['nombre']?></h1>
-                                <form action="insertardetalle.php" method="POST">                            
-                                    <input type="text" class="form-control mb-3" name="edificio" placeholder="Edificio">
-                                    <input type="text" class="form-control mb-3" name="planta" placeholder="Planta">
-                                    <input type="text" class="form-control mb-3" name="descripcion" placeholder="Descripcion">                                                                                                        
+                            <h1>Salon <?php echo $_GET['nombre']?></h1>
+                                <form action="addAparato.php" method="POST">                            
+                                    <input type="hidden" name="id_espacio" value="<?php echo $_GET['id']?>">                                    
+                                    <select name="id_aparato">
+                                        <?php foreach($aparatos as $aparato){?>
+                                            <option name="id_aparato" value="<?php echo $aparato->id_aparato?>"><?php echo $aparato->nombre?></option>                            
+                                            
+                                    <?php }?>
+                                    </select>
+                                    <input type="number" class="form-control mb-3" name="cantidad" placeholder="Cantidad">
+                                    <input type="number" class="form-control mb-3" name="tiempo" placeholder="Tiempo">                                                                                                        
                                     <input type="submit" class="btn btn-primary">
                                 </form>
                         </div>

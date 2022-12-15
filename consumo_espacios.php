@@ -55,7 +55,7 @@
                                                 <td><?php  echo $numero;?></td>
                                                 <td><?php  echo $total?></td>                                                
                                                 <td>
-                                                <form action="consumo_detalle.php" method="post">
+                                                <form action="consumo_detalle.php" method="get">
                                                     <input type="hidden" name="id" value="<?php echo $id_espacio?>">    
                                                     <input type="hidden" name="nombre" value="<?php echo $numero?>">                                                
                                                     <button type="submit" class="btn btn-info">Editar</button>
