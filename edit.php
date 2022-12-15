@@ -37,7 +37,8 @@
                         <div class="col-md-8">
                             <table class="table" >
                                 <thead class="table-success table-striped" >
-                                    <tr>
+                                    <tr>    
+                                        <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Apellidos</th>
                                         <th>email</th>
@@ -52,14 +53,15 @@
                                             while($row=mysqli_fetch_array($query)){
                                         ?>
                                             <tr>
-                                                <th><?php  echo $row['Nombre']?></th>
-                                                <th><?php  echo $row['Apellidos']?></th>
-                                                <th><?php  echo $row['email']?></th>
-                                                <th><?php  echo $row['RFC']?></th>
-                                                <th><?php  echo $row['Rol']?></th>                                                                       
-                                                <th><?php  echo $row['idUsuario']?></th>     
-                                                <th><a href="actualizar.php?id=<?php echo $row['email'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="delete.php?id=<?php echo $row['email'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <td><?php  echo $row['idUsuario']?></td>
+                                                <td><?php  echo $row['Nombre']?></td>
+                                                <td><?php  echo $row['Apellidos']?></td>
+                                                <td><?php  echo $row['email']?></th>
+                                                <td><?php  echo $row['RFC']?></td>
+                                                <td><?php  echo $row['Rol']?></td>                                                                                                                          
+                                                <td><a href="actualizar.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-info">Editar</a>
+                                                <a href="delete.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-danger">Eliminar</a></td>
+                                                
                                             </tr>
                                         <?php 
                                             }
