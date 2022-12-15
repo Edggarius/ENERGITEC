@@ -1,13 +1,13 @@
 <?php 
-    include("conexion1.php");
-    $con=conectar();
+require 'conexion1.php';
 
 $id=$_GET['id'];
 
-$sql="SELECT * FROM usuario WHERE email='$id'";
+$sql="SELECT * FROM usuario WHERE idUsuario='$id'";
 $query=mysqli_query($con,$sql);
 
 $row=mysqli_fetch_array($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $row=mysqli_fetch_array($query);
                 <div class="container mt-5">
                     <form action="update.php" method="POST">
                     
-                                <input type="hidden" name="nombre" value="<?php echo $row['Nombre']  ?>">
+                                <input type="hidden" name="id" value="<?php echo $id?>">
                                 <p>Nombre de Usuario</p>
                                 <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre" value="<?php echo $row['Nombre']  ?>">
                                 <p>Apellidos</p>
@@ -37,9 +37,7 @@ $row=mysqli_fetch_array($query);
                                 <p>Rol</p>
                                 <input type="text" class="form-control mb-3" name="Rol" placeholder="contra" value="<?php echo $row['Rol']  ?>">
                                 <p>Contraseña</p>
-                                <input type="text" class="form-control mb-3" name="contra" placeholder="contra" value="<?php echo $row['contra']  ?>">
-                                 <p>idUsuario</p>
-                                <input type="text" class="form-control mb-3" name="contra" placeholder="contra" value="<?php echo $row['idUsuario']  ?>">
+                                <input type="text" class="form-control mb-3" name="contra" placeholder="contra" value="<?php echo $row['contra']  ?>">                            
                             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
                     </form>
                 </div>

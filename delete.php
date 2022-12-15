@@ -1,11 +1,10 @@
 <?php
 
-include("conexion1.php");
-$con=conectar();
+require 'conexion1.php';
 
-$email=$_GET['email'];
+$id=$_GET['id'];
 
-$sql="DELETE FROM usuario WHERE email='$email'";
+$sql="DELETE FROM usuario WHERE idUsuario='$id'";
 $query=mysqli_query($con,$sql);
 
     if($query){
