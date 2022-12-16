@@ -146,6 +146,7 @@
      
              
     }
+
     function updateEdificio($id_edificio){
         require 'conexion1.php';
         $valor = getSumaConsumoEspacios($id_edificio);
@@ -171,5 +172,20 @@
              
     }    
     
- 
+    function getConsumoTotal(){
+        require 'conexion1.php';
+        $sql = "SELECT SUM(total) AS total FROM edificios";        
+        $resultArray = mysqli_query($con, $sql);
+        if (mysqli_num_rows($resultArray) > 0) {
+            
+            while( ($row = mysqli_fetch_assoc($resultArray))) {      
+                mysqli_close($con);
+                return $row['total'];                
+            }   
+
+        }
+     
+             
+    }         
+     
 ?>

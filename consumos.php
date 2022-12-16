@@ -2,7 +2,7 @@
     require 'DBManager.php';
     $interiores = json_decode(getInteriores());    
     
-
+    
     // $sql="SELECT * FROM usuario";
     // $query=mysqli_query($con,$sql);
 ?>
