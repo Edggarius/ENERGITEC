@@ -14,8 +14,9 @@
         require 'DBManager.php';        
         $aparatos = json_decode(getAparatos());        
         $detalle=json_decode(getDetalleConsumo($consumo))[0]; 
-        if(isset($_POST['update'])){            
-            updateConsumo($consumo, $_POST['cantidad'], $_POST['tiempo']);
+        if(isset($_POST['update'])){             
+            $valor=getConsumo($detalle->potencia,$_POST['tiempo'],$_POST['cantidad']);
+            updateConsumo($consumo, $_POST['cantidad'], $_POST['tiempo'],$valor);
             header("location:edit_aparato.php?id=$consumo");
         }else if(isset($_GET['delete'])){
             deleteConsumo($consumo);

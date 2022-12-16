@@ -53,7 +53,10 @@
                                                 <!--Aqui van los datos -->                                        
                                                 <td><?php  echo $id_espacio?></td>
                                                 <td><?php  echo $numero;?></td>
-                                                <td><?php  echo $total?></td>                                                
+                                                <td><?php 
+                                                    $valor=getSumaConsumo($id_espacio);
+                                                    updateTotalSalon($id_espacio, $valor);
+                                                echo $total?></td>                                                
                                                 <td>
                                                 <form action="consumo_detalle.php" method="get">
                                                     <input type="hidden" name="id" value="<?php echo $id_espacio?>">    

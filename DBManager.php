@@ -110,9 +110,10 @@
         }           
     }
 
-    function updateConsumo($id_consumo, $cantidad, $tiempo){
+    function updateConsumo($id_consumo, $cantidad, $tiempo, $valor){
         require 'conexion1.php';
-        $sql = "UPDATE consumo SET cantidad='$cantidad',tiempo='$tiempo' WHERE id_consumo='$id_consumo'";
+
+        $sql = "UPDATE consumo SET cantidad='$cantidad',tiempo='$tiempo',total='$valor' WHERE id_consumo='$id_consumo'";
         mysqli_query($con, $sql); 
         mysqli_close($con);
     }
