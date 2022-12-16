@@ -97,7 +97,7 @@
     }
     function getDetalleConsumo($id_consumo){
         require 'conexion1.php';
-        $sql = "SELECT * FROM consumo WHERE id_consumo='$id_consumo'";
+        $sql = "SELECT * FROM consumo INNER JOIN aparatos ON consumo.id_aparato=aparatos.id_aparato WHERE id_consumo='$id_consumo'";
         $resultArray = mysqli_query($con, $sql);        
         if (mysqli_num_rows($resultArray) > 0) {
             
@@ -110,4 +110,17 @@
         }           
     }
 
+    function updateConsumo($id_consumo, $cantidad, $tiempo){
+        require 'conexion1.php';
+        $sql = "UPDATE consumo SET cantidad='$cantidad',tiempo='$tiempo'";
+        mysqli_query($con, $sql); 
+        mysqli_close($con);
+    }
+
+    function deleteConsumo($id_consumo){
+        require 'conexion1.php';
+        $sql = "DELETE FROM consumo WHERE id_consumo='$id_consumo'";
+        mysqli_query($con, $sql); 
+        mysqli_close($con);
+    }
 ?>

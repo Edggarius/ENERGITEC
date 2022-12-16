@@ -71,9 +71,10 @@
                                                 <td><?php  echo $tiempo?></td>
                                                 <td><?php  echo $total?></td>                                            
                                                 <td>
-                                                <form action="edit_aparato.php" method="get">
+                                                <form action="edit_aparato.php" method="GET">
                                                     <input type="hidden" name="id" value="<?php echo $id?>">                                                        
-                                                    <button type="submit" class="btn btn-info">Editar</button>
+                                                    <button type="submit" name="update" class="btn btn-info">Editar</button>
+                                                    <button type="submit" name="delete" class="btn btn-info">Eliminar</button>
                                                 </form>                                                                                           
                                                 </td>
                                             </tr>                                                                                            
