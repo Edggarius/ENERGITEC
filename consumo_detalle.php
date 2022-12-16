@@ -25,6 +25,7 @@
                             <h1>Salon <?php echo $_GET['nombre']?></h1>
                                 <form action="addAparato.php" method="POST">                            
                                     <input type="hidden" name="id_espacio" value="<?php echo $_GET['id']?>">                                    
+                                    <input type="hidden" name="salon" value="<?php echo $_GET['nombre']?>">                                    
                                     <select name="id_aparato">
                                         <?php foreach($aparatos as $aparato){?>
                                             <option name="id_aparato" value="<?php echo $aparato->id_aparato?>"><?php echo $aparato->nombre?></option>                            

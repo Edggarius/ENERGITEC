@@ -112,7 +112,7 @@
 
     function updateConsumo($id_consumo, $cantidad, $tiempo){
         require 'conexion1.php';
-        $sql = "UPDATE consumo SET cantidad='$cantidad',tiempo='$tiempo'";
+        $sql = "UPDATE consumo SET cantidad='$cantidad',tiempo='$tiempo' WHERE id_consumo='$id_consumo'";
         mysqli_query($con, $sql); 
         mysqli_close($con);
     }
@@ -123,4 +123,52 @@
         mysqli_query($con, $sql); 
         mysqli_close($con);
     }
+
+    function updateTotalSalon($id_espacio,$valor){
+        require 'conexion1.php';
+        $valor=round($valor, 3);
+        $sql = "UPDATE espacios SET total='$valor' WHERE id_espacio='$id_espacio'";         
+        mysqli_query($con, $sql); 
+    }
+    function getSumaConsumo($id_espacio){
+        require 'conexion1.php';
+        $sql = "SELECT SUM(total) AS total FROM consumo WHERE id_espacio='$id_espacio'";        
+        $resultArray = mysqli_query($con, $sql);
+        if (mysqli_num_rows($resultArray) > 0) {
+            
+            while( ($row = mysqli_fetch_assoc($resultArray))) {      
+                mysqli_close($con);
+                return $row['total'];                
+            }   
+
+        }
+     
+             
+    }
+    function updateEdificio($id_edificio){
+        require 'conexion1.php';
+        $valor = getSumaConsumoEspacios($id_edificio);
+        $valor=round($valor, 3);
+        $sql = "UPDATE edificios SET total='$valor' WHERE id_edificio='$id_edificio'";         
+        mysqli_query($con, $sql); 
+             
+    }
+
+    function getSumaConsumoEspacios($id_edificio){
+        require 'conexion1.php';
+        $sql = "SELECT SUM(total) AS total FROM espacios WHERE id_edificio='$id_edificio'";        
+        $resultArray = mysqli_query($con, $sql);
+        if (mysqli_num_rows($resultArray) > 0) {
+            
+            while( ($row = mysqli_fetch_assoc($resultArray))) {      
+                mysqli_close($con);
+                return $row['total'];                
+            }   
+
+        }
+     
+             
+    }    
+    
+ 
 ?>

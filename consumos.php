@@ -1,6 +1,8 @@
 <?php 
     require 'DBManager.php';
     $interiores = json_decode(getInteriores());    
+    
+
     // $sql="SELECT * FROM usuario";
     // $query=mysqli_query($con,$sql);
 ?>
@@ -53,7 +55,9 @@
                                                 ?>                           
                                                 <td><?php  echo $id_edificio?></td>
                                                 <td><?php  echo $nombre?></td>
-                                                <td><?php  echo $total?></td>   
+                                                <td><?php  
+                                                updateEdificio($id_edificio);
+                                                echo $total?></td>   
                                                 <td>
                                                 <form action="consumo_espacios.php" method="post">
                                                     <input type="hidden" name="id" value="<?php echo $id_edificio?>">    
